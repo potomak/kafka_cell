@@ -1,3 +1,7 @@
 #!/usr/bin/env ruby
 
+require 'celluloid/current'
 require 'kafka_cell'
+
+kafka_cell = KafkaCell::Base.new(seed_brokers: ['localhost:9092'])
+kafka_cell.run(group_id: 'my-group', topics: ['example'])
